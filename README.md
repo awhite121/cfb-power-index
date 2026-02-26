@@ -75,12 +75,12 @@ The analysis follows a linear narrative:
 
 1. **Setup & Data Loading**
 2. **Data Quality Check**
-3. **Exploratory Data Analysis** — scoring distributions, offense vs. defense quadrants, third-down efficiency, feature correlations
-4. **Feature Engineering** — six per-play/net metrics with rationale
-5. **Power Index Construction** — z-score standardization + weighted aggregation
-6. **Validation** — index vs. actual CFP selections, championship retrospective
-7. **Win Probability Model** — logistic model + retroactive bracket predictions
-8. **Team Profile Tool** — reusable function to profile any FBS team
+3. **Exploratory Data Analysis**: scoring distributions, offense vs. defense quadrants, third-down efficiency, feature correlations
+4. **Feature Engineering**: six per-play/net metrics with rationale
+5. **Power Index Construction**: z-score standardization + weighted aggregation
+6. **Validation**: index vs. actual CFP selections, championship retrospective
+7. **Win Probability Model**: logistic model + retroactive bracket predictions
+8. **Team Profile Tool**: reusable function to profile any FBS team
 9. **Limitations & Future Work**
 10. **Conclusion**
 
@@ -100,25 +100,6 @@ git clone https://github.com/yourusername/cfb-power-index.git
 cd cfb-power-index
 pip install -r requirements.txt
 jupyter notebook CFB_Power_Index_Study.ipynb
-```
-
----
-
-## Project Structure
-
-```
-cfb-power-index/
-├── README.md
-├── requirements.txt
-├── CFB_Power_Index_Study.ipynb
-├── data/
-│   └── cfb_combined_data.xlsx
-├── figures/
-│   ├── power_index_distribution.png
-│   ├── cfp_validation.png
-│   ├── championship_comparison.png
-│   └── win_probability.png
-└── .gitignore
 ```
 
 ---
