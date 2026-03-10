@@ -1,8 +1,11 @@
 # Building a Composite Power Index for College Football
 
-**Can efficiency metrics predict CFB Playoff teams better than raw rankings?**
+Can efficiency metrics predict CFB Playoff teams better than raw rankings?
 
-**Season:** 2025 FBS · 136 teams · 2025–26 College Football Playoff (12-team format)
+## Live App
+[Open the Streamlit Dashboard](https://cfb-power-index.streamlit.app)
+
+Season: 2025 FBS · 136 teams · 2025–26 College Football Playoff (12-team format)
 
 ---
 
