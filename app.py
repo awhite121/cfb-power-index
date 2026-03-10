@@ -19,9 +19,14 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Sans+3:wght@300;400;600;700&display=swap');
 
     /* Global */
-    .stApp { background-color: #0c0f1a; }
+    .stApp { background-color: #0c0f1a; color: #d0d3e0; }
     section[data-testid="stSidebar"] { background-color: #10132a; border-right: 1px solid #1e2240; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif !important; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif !important; color: #eae7e0 !important; }
+    h4 { color: #d4c9a8 !important; }
+    p, li, span, div { color: #c8cbd8; }
+    .stMarkdown p { color: #c8cbd8 !important; }
+    strong, b { color: #e8e5dc !important; }
+    code { color: #e0c97f !important; }
 
     /* Header banner */
     .hero-banner {
@@ -38,7 +43,7 @@ st.markdown("""
         -webkit-text-fill-color: transparent;
         margin: 0 0 4px 0;
     }
-    .hero-banner p { color: #6a6e8a; font-size: 0.92rem; margin: 0; }
+    .hero-banner p { color: #9a9eb8 !important; font-size: 0.92rem; margin: 0; }
 
     /* KPI cards */
     .kpi-card {
@@ -48,9 +53,9 @@ st.markdown("""
         padding: 18px 20px;
         text-align: center;
     }
-    .kpi-card .label { font-size: 0.72rem; color: #6a6e8a; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 6px; }
+    .kpi-card .label { font-size: 0.72rem; color: #a0a4be; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 6px; }
     .kpi-card .value { font-size: 2rem; font-weight: 800; color: #c8aa6e; font-family: 'Playfair Display', serif; }
-    .kpi-card .sub { font-size: 0.75rem; color: #4a4e6a; margin-top: 4px; }
+    .kpi-card .sub { font-size: 0.75rem; color: #8a8ea8; margin-top: 4px; }
 
     /* Metric pill */
     .metric-pill {
@@ -67,13 +72,13 @@ st.markdown("""
     /* Clean table styling */
     .stDataFrame { border-radius: 8px; overflow: hidden; }
     div[data-testid="stMetric"] { background: #12152e; border: 1px solid #252850; border-radius: 10px; padding: 14px 18px; }
-    div[data-testid="stMetric"] label { color: #6a6e8a !important; font-size: 0.78rem !important; text-transform: uppercase; letter-spacing: 1px; }
+    div[data-testid="stMetric"] label { color: #a0a4be !important; font-size: 0.78rem !important; text-transform: uppercase; letter-spacing: 1px; }
     div[data-testid="stMetric"] [data-testid="stMetricValue"] { color: #c8aa6e !important; font-family: 'Playfair Display', serif !important; }
 
     /* Tabs styling */
     .stTabs [data-baseweb="tab-list"] { gap: 4px; border-bottom: 1px solid #252850; }
     .stTabs [data-baseweb="tab"] {
-        background: transparent; color: #6a6e8a; border-radius: 8px 8px 0 0;
+        background: transparent; color: #9a9eb8; border-radius: 8px 8px 0 0;
         padding: 10px 20px; font-weight: 600; font-size: 0.9rem;
     }
     .stTabs [aria-selected="true"] { background: #c8aa6e !important; color: #0c0f1a !important; }
@@ -86,7 +91,7 @@ st.markdown("""
         border-radius: 6px;
         padding: 14px 18px;
         font-size: 0.85rem;
-        color: #8a8ea8;
+        color: #b8bcd0;
         margin: 16px 0;
     }
     .note-box strong { color: #c8aa6e; }
@@ -94,6 +99,7 @@ st.markdown("""
     /* Sidebar label colors */
     section[data-testid="stSidebar"] label { color: #c8aa6e !important; font-weight: 600 !important; }
     section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] { background: #181c38; }
+    section[data-testid="stSidebar"] p, section[data-testid="stSidebar"] span { color: #b0b4c8 !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -177,8 +183,8 @@ def win_probability(pi_a, pi_b, hfa=0.0, k=1.2):
 PLOTLY_LAYOUT = dict(
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(12,15,26,0.8)",
-    font=dict(family="Source Sans 3, sans-serif", color="#8a8ea8"),
-    title_font=dict(family="Playfair Display, serif", color="#e8e0d0", size=18),
+    font=dict(family="Source Sans 3, sans-serif", color="#c0c3d4"),
+    title_font=dict(family="Playfair Display, serif", color="#eae7e0", size=18),
     hoverlabel=dict(bgcolor="#1a1d38", bordercolor="#c8aa6e", font_color="#e8e0d0"),
 )
 # Default axis style applied after layout
@@ -226,7 +232,7 @@ with tab1:
         y=top["School"], x=top["Power_Index"],
         orientation="h", marker_color=colors,
         text=top["Power_Index"].round(3), textposition="outside",
-        textfont=dict(size=11, color="#8a8ea8"),
+        textfont=dict(size=11, color="#c0c3d4"),
         hovertemplate="<b>%{y}</b><br>Power Index: %{x:.3f}<br>Rank: #%{customdata}<extra></extra>",
         customdata=top["Power_Rank"],
     ))
@@ -342,7 +348,7 @@ with tab2:
         fig_seed.add_trace(go.Scatter(
             x=cfp_df["Power_Rank"], y=cfp_df["CFP_Seed"],
             mode="markers+text", text=cfp_df["School"],
-            textposition="top right", textfont=dict(size=9, color="#8a8ea8"),
+            textposition="top right", textfont=dict(size=9, color="#c0c3d4"),
             marker=dict(color=colors_seed, size=12, line=dict(width=1.5, color="#0c0f1a")),
             hovertemplate="<b>%{text}</b><br>Power Rank: #%{x}<br>CFP Seed: #%{y}<extra></extra>",
         ))
@@ -433,7 +439,7 @@ with tab3:
             y=[row["Matchup"]], x=[wp_val], orientation="h",
             marker_color=color, marker_opacity=0.8,
             text=f"{row['Predicted']} ({row['Confidence']})", textposition="outside",
-            textfont=dict(size=11, color="#8a8ea8"),
+            textfont=dict(size=11, color="#c0c3d4"),
             showlegend=False,
             hovertemplate=f"<b>{row['Round']}</b><br>{row['Matchup']}<br>Predicted: {row['Predicted']} ({row['Confidence']})<br>Actual: {row['Actual Winner']} {row['Result']}<extra></extra>",
         ))
@@ -500,7 +506,7 @@ with tab4:
     ))
     fig_prob.update_layout(
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(12,15,26,0.8)",
-        font=dict(family="Source Sans 3, sans-serif", color="#8a8ea8"),
+        font=dict(family="Source Sans 3, sans-serif", color="#c0c3d4"),
         barmode="stack", height=100,
         xaxis=dict(visible=False), yaxis=dict(visible=False),
         margin=dict(l=0, r=0, t=0, b=0),
@@ -541,7 +547,7 @@ with tab4:
             polar=dict(
                 bgcolor="rgba(0,0,0,0)",
                 radialaxis=dict(visible=True, range=[0, 100], gridcolor="#1e2240", tickfont=dict(size=8, color="#4a4e6a")),
-                angularaxis=dict(gridcolor="#252850", tickfont=dict(size=10, color="#8a8ea8")),
+                angularaxis=dict(gridcolor="#252850", tickfont=dict(size=10, color="#c0c3d4")),
             ),
             height=400,
             legend=dict(x=0.5, xanchor="center", y=-0.1, orientation="h"),
@@ -627,7 +633,7 @@ with tab5:
         fig_profile.add_trace(go.Bar(
             x=metric_labels, y=team_z, marker_color=colors_bar,
             text=[f"{z:+.2f}" for z in team_z], textposition="outside",
-            textfont=dict(size=11, color="#8a8ea8"),
+            textfont=dict(size=11, color="#c0c3d4"),
             hovertemplate="%{x}: %{y:.2f} std devs<extra></extra>",
         ))
         fig_profile.update_layout(
@@ -684,7 +690,7 @@ with tab5:
         y=wp_df["Opponent"], x=wp_df["Win %"], orientation="h",
         marker_color=colors_wp,
         text=wp_df["Win %"].round(1).astype(str) + "%", textposition="outside",
-        textfont=dict(size=11, color="#8a8ea8"),
+        textfont=dict(size=11, color="#c0c3d4"),
     ))
     fig_wp.update_layout(
         **PLOTLY_LAYOUT, height=350, title="",
@@ -722,7 +728,7 @@ with tab6:
         fig_w.add_trace(go.Bar(
             x=w_data["Weight"], y=w_data["Metric"], orientation="h",
             marker_color=GOLD, text=w_data["Weight"].astype(str) + "%",
-            textposition="outside", textfont=dict(color="#8a8ea8"),
+            textposition="outside", textfont=dict(color="#c0c3d4"),
         ))
         fig_w.update_layout(**PLOTLY_LAYOUT, height=280, title="", xaxis_title="Weight (%)",
                            yaxis=dict(autorange="reversed"))
